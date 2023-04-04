@@ -1,5 +1,6 @@
 import { hashPassword } from "../helpers/authHelper.js";
 import useModel from "../models/useModel.js";
+import JWT from "jsonwebtoken";
 
 export const registerController = async (req, res) => {
   try {
@@ -32,15 +33,21 @@ export const registerController = async (req, res) => {
       });
     }
     // register user
-    const hashedPassword = await hashPassword(password)
+    const hashedPassword = await hashPassword(password);
     // save
-    const user = new useModel({name,email,phone,address,password:hashedPassword}).save()
+    const user = await new useModel({
+      name,
+      email,
+      phone,
+      address,
+      password: hashedPassword,
+    }).save();
 
     res.status(201).send({
-        success:true,
-        message: "User Register Successfully",
-        user,
-    })
+      success: true,
+      message: "User Register Successfully",
+      user,
+    });
   } catch (error) {
     console.log(error);
     res.status(500).send({
