@@ -9,7 +9,7 @@
     "server": "nodemon server.js"
   },
   "keywords": [],
-  "author": "Techinfoyt",
+  "author": "Narongsak P.",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
