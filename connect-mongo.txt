@@ -3,3 +3,7 @@ CxlHi1cZFQCe0yCz
 mongodb+srv://admin:CxlHi1cZFQCe0yCz@customers.zi6oa2o.mongodb.net/?retryWrites=true&w=majority
 
 mongodb+srv://admin:CxlHi1cZFQCe0yCz@cluster0.ip1otaf.mongodb.net/ecommerce
+
+//ใช้ในการรันทีเดียวสอง folder
+ "client": "npm start --prefix ./client", 
+ "dev": "concurrently \"npm run server\" \"npm run client\""

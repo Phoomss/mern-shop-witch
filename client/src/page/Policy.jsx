@@ -19,7 +19,7 @@ const Policy = () => {
         <p>add privacy policy</p>
         <p>add privacy policy</p>
         <p>add privacy policy</p>
-        <p>add privacy policy</p>
+        <p>add privacy policy</p> 
       </div>
     </div>
   </Layout>
