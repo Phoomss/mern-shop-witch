@@ -1,0 +1,66 @@
+/* register */
+.register{
+    width: 350px;
+    height: 400px;
+    margin: 150px auto;
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px #b6a9a9, -5px -5px 10px #ffffff;
+}
+
+h1{
+    margin: -25px 0 20px 0;
+    text-align: center;
+}
+
+form{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+input{
+    display: block;
+    width: 80%;
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    font-family: sans-serif;
+    background: transparent;
+    font-size: 16px;
+    border-radius: 25px;
+    text-shadow: 1px 1px 0 #ffffff;
+    box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+    padding: 10px;
+}
+
+input:focus{
+    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+}
+
+button{
+    width:100%;
+    border: none;
+    height: 35px;
+    border-radius: 25px;
+    background:  rgb(41, 41, 41);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: rgb(3, 3, 3);
+    box-shadow: -5px -5px 20px rgb(224, 217, 217), 5px 5px 20px #babecc;
+}
+
+button:active {
+    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+  }
+
+/* login */
+.login{
+    width: 350px;
+    height: 250px;
+    margin: 150px auto;
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px #b6a9a9, -5px -5px 10px #ffffff;
+}
