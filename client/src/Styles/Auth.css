@@ -1,8 +1,7 @@
 /* register */
 .register{
     width: 350px;
-    height: 400px;
-    margin: 150px auto;
+    height: 450px;
     border-radius: 25px;
     box-shadow: 5px 5px 10px #b6a9a9, -5px -5px 10px #ffffff;
 }
@@ -45,22 +44,26 @@ button{
     color: white;
     font-size: 20px;
     cursor: pointer;
+    margin: 5px 0px;
 }
 
 button:hover{
     background: rgb(3, 3, 3);
-    box-shadow: -5px -5px 20px rgb(224, 217, 217), 5px 5px 20px #babecc;
+    box-shadow: -5px -5px 20px rgb(224, 217, 217), 5px 5px 20px #858585;
 }
-
-button:active {
-    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
-  }
 
 /* login */
 .login{
     width: 350px;
-    height: 250px;
-    margin: 150px auto;
+    height: 270px;
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px #b6a9a9, -5px -5px 10px #ffffff;
+} 
+
+/* forgot-password */
+.forgot-password{
+    width: 400px;
+    height: 300px;
     border-radius: 25px;
     box-shadow: 5px 5px 10px #b6a9a9, -5px -5px 10px #ffffff;
 }
