@@ -27,4 +27,14 @@ router.get("/test", requireSingIn, isAdmin, testController);
 router.get("/user-auth",  requireSingIn,(req,res) => {
   res.status(200).send({ok: true})
 })
+
+// protected User route auth
+router.get("/user-auth",  requireSingIn,(req,res) => {
+  res.status(200).send({ok: true})
+})
+
+// protected Admin route auth
+router.get("/admin-auth",  requireSingIn,isAdmin,(req,res) => {
+  res.status(200).send({ok: true})
+})
 export default router;

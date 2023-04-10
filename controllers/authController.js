@@ -101,6 +101,7 @@ export const loginController = async (req, res) => {
         email: user.email,
         phone: user.phone,
         address: user.address,
+        role: user.role,
       },
       token,
     });
@@ -117,19 +118,17 @@ export const loginController = async (req, res) => {
 // forgotPasswordController
 export const forgotPasswordController = async (req, res) => {
   try {
-    const { email, answer, newPassword } = req.body;
+    const { email, newPassword } = req.body;
     if (!email) {
       res.status(400).send({ message: "Email is required" });
     }
-    if (!answer) {
-      res.status(400).send({ message: "Answer is required" });
-    }
+    
     if (!newPassword) {
       res.status(400).send({ message: "New Password is required" });
     }
 
     // check
-    const user = await useModel.findOne({ email, answer });
+    const user = await useModel.findOne({ email });
     // validation
     if (!user) {
       return res.status(404).send({
