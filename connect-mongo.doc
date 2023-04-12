@@ -7,3 +7,7 @@ mongodb+srv://admin:CxlHi1cZFQCe0yCz@cluster0.ip1otaf.mongodb.net/ecommerce
 //ใช้ในการรันทีเดียวสอง folder
  "client": "npm start --prefix ./client", 
  "dev": "concurrently \"npm run server\" \"npm run client\""
+
+
+//uploadPhoto
+ npm i express-formidable 
