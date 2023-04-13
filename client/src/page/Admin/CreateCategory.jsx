@@ -7,7 +7,7 @@ import CategoryForm from "../../components/Form/CategoryForm";
 import { Modal } from "antd";
 
 const CreateCategory = () => {
-  const [category, setCategory] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
   const [visible, setVisible] = useState(false);
   const [selected, setSelected] = useState(null);
@@ -36,8 +36,8 @@ const CreateCategory = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get("/api/v1/category/all-category");
-      if (data?.success) {
-        setCategory(data?.category);
+      if (data.success) {
+        setCategories(data?.category);
       }
     } catch (error) {
       console.log(error);
@@ -113,7 +113,7 @@ const CreateCategory = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {category?.map((c) => (
+                  {categories?.map((c) => (
                     <>
                       <tr>
                         <td key={c._id}>{c.name}</td>
