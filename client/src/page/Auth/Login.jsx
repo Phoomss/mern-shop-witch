@@ -49,7 +49,7 @@ const Login = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="form-control"
+              className="input"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter Your Email"
@@ -60,14 +60,14 @@ const Login = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="form-control"
+              className="form-control input"
               id="exampleInputPassword1"
               placeholder="Enter Your Password"
               required
             />
 
-            <button type="submit"onClick={()=> {navigate("/forgot-password")}}>Forgot Password</button>
-            <button type="submit" >Login</button>
+            <button type="submit"onClick={()=> {navigate("/forgot-password")}} className="button">Forgot Password</button>
+            <button type="submit" className="button">Login</button>
           </form>
         </div>
       </div>

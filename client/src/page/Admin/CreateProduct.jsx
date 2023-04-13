@@ -14,6 +14,7 @@ const CreateProduct = () => {
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
   const [shipping, setShipping] = useState("");
+  const [photo, setPhoto] =useState("")
 
   const getAllCategory = async () => {
     try {
@@ -40,13 +41,13 @@ const CreateProduct = () => {
           </div>
           <div className="col-md-9">
             <h1>Create Product</h1>
-            <div className="m-1">
+            <div className="m-1 w-75">
             <Select
                 bordered={false}
                 placeholder="Select a category"
                 size="large"
                 showSearch
-                className="form-select mb-3 ms-3"
+                className="form-select  "
                 onChange={(value) => {
                   setCategory(value);
                 }}
@@ -57,6 +58,12 @@ const CreateProduct = () => {
                   </Option>
                 ))}
               </Select>
+              <div className="mb-3">
+                <label htmlFor="upload images" className="btn btn-outline-secondary">
+                  {photo && photo.name}
+                  <input type="file" name="" id=""></input>
+                </label>
+              </div>
             </div>
           </div>
         </div>

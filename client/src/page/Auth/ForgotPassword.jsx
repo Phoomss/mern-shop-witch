@@ -43,7 +43,7 @@ const ForgotPassword = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="form-control"
+              className="input"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter Your Email"
@@ -54,13 +54,13 @@ const ForgotPassword = () => {
               type="password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="form-control"
+              className="input"
               id="exampleInputPassword1"
               placeholder="Enter Your Password"
               required
             />
 
-            <button type="submit">RESET</button>
+            <button type="submit" className="button">RESET</button>
           </form>
         </div>
       </div>

@@ -1,7 +1,7 @@
 /* register */
 .register{
     width: 350px;
-    height: 450px;
+    height: 500px;
     border-radius: 25px;
     box-shadow: 5px 5px 10px #b6a9a9, -5px -5px 10px #ffffff;
 }
@@ -16,8 +16,9 @@ form{
     margin-right: 40px;
 }
 
-input{
-    display: block;
+.input{
+    text-align: center;
+   margin-left: 1rem;
     width: 80%;
     margin-bottom: 20px;
     border: none;
@@ -31,11 +32,11 @@ input{
     padding: 10px;
 }
 
-input:focus{
+.input:focus{
     box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
 }
 
-button{
+.button{
     width:100%;
     border: none;
     height: 35px;
@@ -47,7 +48,7 @@ button{
     margin: 5px 0px;
 }
 
-button:hover{
+.button:hover{
     background: rgb(3, 3, 3);
     box-shadow: -5px -5px 20px rgb(224, 217, 217), 5px 5px 20px #858585;
 }
