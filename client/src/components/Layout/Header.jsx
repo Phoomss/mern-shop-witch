@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import { GiShoppingBag } from "react-icons/gi";
+import { BsSmartwatch } from "react-icons/bs";
 import { useAuth } from "../../context/auth.js";
 import toast from "react-hot-toast";
 
@@ -22,7 +22,7 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <Link className="navbar-brand">
-            <GiShoppingBag className="icon-brand" /> IT STORE
+            <BsSmartwatch className="icon-brand" /> Witches || More 
           </Link>
           <button
             className="navbar-toggler"
