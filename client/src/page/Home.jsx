@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout/Layout";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 
@@ -34,12 +33,12 @@ const Home = () => {
   // get products
   const getAllProducts = async () => {
     try {
-      setLoading(true)
+      setLoading(true);
       const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
-      setLoading(false)
+      setLoading(false);
       setProducts(data.products);
     } catch (error) {
-      setLoading(false)
+      setLoading(false);
       console.log(error);
     }
   };
@@ -54,22 +53,22 @@ const Home = () => {
     }
   };
 
-  useEffect(() =>{
-    if(page === 1) return;
-    loadMord()
-  }, [page])
+  useEffect(() => {
+    if (page === 1) return;
+    loadMord();
+  }, [page]);
   // load more
-  const loadMord = async() =>{
+  const loadMord = async () => {
     try {
-      setLoading(true)
-      const {data} = await axios.get(`/api/v1/product/product-list/${page}`)
-      setLoading(false)
-      setLoading([...products, ...data?.products])
+      setLoading(true);
+      const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
+      setLoading(false);
+      setLoading([...products, ...data?.products]);
     } catch (error) {
       console.log(error);
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   // filter by cat
   const handleFilter = (value, id) => {
@@ -142,43 +141,38 @@ const Home = () => {
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
-              <Link
-                key={p._id}
-                to={`/dashboard/admin/product/${p.slug}`}
-                className="product-link"
-              >
-                <div className="card m-2" style={{ width: "18rem" }}>
-                  <img
-                    src={`/api/v1/product/product-photo/${p._id}`}
-                    className="card-img-top"
-                    alt={p.name}
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">{p.name}</h5>
-                    <p className="card-text">
-                      {p.description.substring(0, 30)}...
-                    </p>
-                    <p className="card-text">$ {p.price}</p>
-                    <button className="btn btn-primary ms-1">
-                      Go somewhere
-                    </button>
-                    <button className="btn btn-secondary ms-1">
-                      Add To Cart
-                    </button>
-                  </div>
+              <div className="card m-2" style={{ width: "18rem" }}>
+                <img
+                  src={`/api/v1/product/product-photo/${p._id}`}
+                  className="card-img-top"
+                  alt={p.name}
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{p.name}</h5>
+                  <p className="card-text">
+                    {p.description.substring(0, 30)}...
+                  </p>
+                  <p className="card-text">$ {p.price}</p>
+                  <button className="btn btn-primary ms-1">More Details</button>
+                  <button className="btn btn-secondary ms-1">
+                    Add To Cart
+                  </button>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
           <div className="m-2 p-3">
-              {products && products.length <total &&(
-                <button className="btn btn-warning" onClick={(e) =>{
+            {products && products.length < total && (
+              <button
+                className="btn btn-warning"
+                onClick={(e) => {
                   e.preventDefault();
-                  setPage(page +1)
-                }}>
-                  {loading ? "Loading ..." : "Loadmore"}
-                </button>
-              )}
+                  setPage(page + 1);
+                }}
+              >
+                {loading ? "Loading ..." : "Loadmore"}
+              </button>
+            )}
           </div>
         </div>
       </div>
