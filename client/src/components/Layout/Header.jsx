@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { BsSmartwatch } from "react-icons/bs";
+import {BiShoppingBag} from 'react-icons/bi'
 import { useAuth } from "../../context/auth.js";
 import toast from "react-hot-toast";
 import SearchInput from "../Form/SearchInput.jsx";
@@ -129,7 +130,7 @@ const Header = () => {
               <li className="nav-item">
                 <Badge count={cart?.length} showZero>
                   <NavLink to="/cart" className="nav-link">
-                    Cart
+                    <BiShoppingBag className="icon-shop"/>
                   </NavLink>
                 </Badge>
               </li>
