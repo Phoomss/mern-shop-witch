@@ -5,8 +5,11 @@ import { useAuth } from "../../context/auth.js";
 import toast from "react-hot-toast";
 import SearchInput from "../Form/SearchInput.jsx";
 import useCategory from "../../hooks/useCategory.js";
+import { useCart } from "../../context/cart.js";
+import { Badge } from "antd";
 
 const Header = () => {
+  const [cart] = useCart();
   const [auth, setAuth] = useAuth();
   const categories = useCategory();
 
@@ -46,7 +49,7 @@ const Header = () => {
                   Home
                 </NavLink>
               </li>
-              
+
               <li className="nav-item dropdown" key="categories-dropdown">
                 <Link
                   className="nav-link dropdown-toggle"
@@ -124,9 +127,11 @@ const Header = () => {
                 </>
               )}
               <li className="nav-item">
-                <NavLink to="/cart" className="nav-link">
-                  Cart(0)
-                </NavLink>
+                <Badge count={cart?.length} showZero>
+                  <NavLink to="/cart" className="nav-link">
+                    Cart
+                  </NavLink>
+                </Badge>
               </li>
             </ul>
           </div>
