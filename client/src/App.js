@@ -18,6 +18,8 @@ import Profile from "./page/user/Profile";
 import Orders from "./page/user/Orders";
 import Product from "./page/Admin/Product";
 import UpdateProduct from "./page/Admin/UpdateProduct";
+import Search from "./page/Search";
+import ProductDetails from "./page/ProductDetails";
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/product/:slug" element={<ProductDetails />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
           <Route path="user/profile" element={<Profile />} />

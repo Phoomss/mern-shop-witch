@@ -3,6 +3,8 @@ import { NavLink, Link } from "react-router-dom";
 import { BsSmartwatch } from "react-icons/bs";
 import { useAuth } from "../../context/auth.js";
 import toast from "react-hot-toast";
+import SearchInput from "../Form/SearchInput.jsx";
+
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -22,7 +24,7 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <Link className="navbar-brand">
-            <BsSmartwatch className="icon-brand" /> Witches || More 
+            <BsSmartwatch className="icon-brand" /> Witches || More
           </Link>
           <button
             className="navbar-toggler"
@@ -37,6 +39,7 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+             <SearchInput/>
               <li className="nav-item">
                 <NavLink to="/" className="nav-link">
                   Home
