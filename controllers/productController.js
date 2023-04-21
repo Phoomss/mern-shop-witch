@@ -1,8 +1,12 @@
 import slugify from "slugify";
 import productModel from "../models/productModel.js";
 import categoryModel from "../models/categoryModels.js";
+import orderModels from "../models/orderModels.js";
 import fs from "fs";
 import braintree from "braintree";
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 // payment
 var gateway = new braintree.BraintreeGateway({
@@ -318,5 +322,49 @@ export const productCategoryController = async (req, res) => {
       error,
       message: "Error While Getting product",
     });
+  }
+};
+
+// payment gateway api
+// token
+export const braintreeTokenController = async (req, res) => {
+  try {
+    const response = await gateway.clientToken.generate({});
+    res.send(response);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+};
+
+// payment
+export const brainTreePaymentController = async (req, res) => {
+  try {
+    const { nonce, cart } = req.body;
+    let total = 0;
+    cart.forEach((i) => {
+      total += i.price;
+    });
+    const transaction = await gateway.transaction.sale({
+      amount: total,
+      paymentMethodNonce: nonce,
+      options: {
+        submitForSettlement: true,
+      },
+    });
+    if (transaction.success) {
+      const order = new orderModels({
+        products: cart,
+        payment: transaction,
+        buyer: req.user._id,
+      });
+      await order.save();
+      res.json({ ok: true });
+    } else {
+      res.status(500).send(transaction.message);
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
   }
 };
