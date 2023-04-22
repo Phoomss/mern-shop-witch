@@ -197,7 +197,7 @@ export const updateProfileController = async (req, res) => {
 export const getOrderController = async (req, res) => {
   try {
     const orders = await orderModels
-      .find({})
+      .find({ buyer: req.user._id })
       .populate("products", "-photo")
       .populate("buyer", "name");
     res.json(orders);
@@ -206,6 +206,46 @@ export const getOrderController = async (req, res) => {
     res.status(500).send({
       success: false,
       message: "Error While Getting Orders",
+      error,
+    });
+  }
+};
+
+// all orders
+export const getAllOrderController = async (req, res) => {
+  try {
+    const orders = await orderModels
+      .find({})
+      .populate("products", "-photo")
+      .populate("buyer", "name")
+      .sort({ createdAt: "-1" });
+    res.json(orders);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error WHile Geting Orders",
+      error,
+    });
+  }
+};
+
+// order status
+export const orderStatusController = async (req, res) => {
+  try {
+    const { orderId } = req.params;
+    const { status } = req.body;
+    const orders = await orderModels.findByIdAndUpdate(
+      orderId,
+      { status },
+      { new: true }
+    );
+    res.json(orders);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error While Updateing Order",
       error,
     });
   }
